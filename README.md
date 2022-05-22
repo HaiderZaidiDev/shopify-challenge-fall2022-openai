@@ -11,7 +11,7 @@
 <!-- ABOUT THE PROJECT -->
 ## Project Demonstration
 
-![Demo Gif](https://i.imgur.com/dmDUe2S.gif](https://i.imgur.com/FCZTmWo.gif)
+![Demo Gif](https://i.imgur.com/FCZTmWo.gif)
 
 ## About the Project
 Front-end: React, Bootstrap, HTML/CSS (JSX)
