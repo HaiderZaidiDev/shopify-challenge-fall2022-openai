@@ -22,7 +22,7 @@ const Prompt = () => {
   }, [])
 
   const fetchEngines = () => {
-    axios.get(`${process.env.PROD_API_URL}:${process.env.PORT}/api/list_engines`)
+    axios.get(`${process.env.PROD_API_URL}/api/list_engines`)
     .then((res) => {
       setEngines(res.data.data) // Updating state with list of engines available.
     })
@@ -33,7 +33,7 @@ const Prompt = () => {
 
   const fetchPromptResponse = () => {
     // Sending a GET request to the OpenAI Completions API, via our API proxy. 
-    axios.get(`${process.env.PROD_API_URL}:${process.env.PORT}/api/completions?prompt=${prompt}&engineId=${engineSelected}`)
+    axios.get(`${process.env.PROD_API_URL}/api/completions?prompt=${prompt}&engineId=${engineSelected}`)
     .then((res) => {
       let completedResponse = {
         prompt: prompt,
