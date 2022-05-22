@@ -75,6 +75,21 @@ label {
   margin-top: 1vh;
 }
 
+.select-btn {
+  display: block;
+  width: auto;
+  height: auto;
+  background: #6B705C;
+  color: #FFFFFF;
+  border-radius: 3px;
+  border: none;
+  outline: none;
+  font-family: 'Manrope', sans-serif;
+  font-weight: 300;
+  padding: 0.7vh 1vw 0.75 1vw;
+  font-size: 1em;
+}
+
 /* 2. Prompt */ 
 .prompt-wrapper {
   display: flex;
@@ -98,11 +113,17 @@ label {
   background: #F2F3EC;
   border-radius: 10px;
   border: none;
+  padding: 1vh 0 0 1vw;
   margin-top: 0.5vh;
+  font-family: 'Manrope', sans-serif;
+  font-weight: 300;
+}
+
+.prompt-input:focus {
+  outline: 2px solid 6B705C;
 }
 
 .prompt-input::placeholder {
-  padding: 1vh 0 0 1vw;
   font-family: 'Poppins', sans-serif;
   font-weight: 300;
 }
@@ -122,18 +143,19 @@ label {
 }
 
 .response {
-  height: 150px;
+  height: auto;
   width: 100%;
   background: #F2F3EC;
   border-radius: 10px;
   border: none;
   margin: 2.5vh 0 1vh 0;
-  align-items: center;
+  padding: 2vh 1vw 2vh 1vw;
 }
 
 .response p {
   margin: 0.25vh;
 }
+
 
 @media only screen and (max-width: 600px) {
   /* Increasing size of prompt text area and response div on mobile devices to take up a greater width */
