@@ -7,11 +7,13 @@ import Col from 'react-bootstrap/Col';
 
 /* Core Components */
 import Header from './components/Header.js'
+import Prompt from './components/Prompt.js'
 
 const App = () => {
   return (
     <Container fluid>
       <Header/>
+      <Prompt/>
     </Container>
   );
 }

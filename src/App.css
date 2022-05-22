@@ -1,4 +1,5 @@
 /* Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@300;500&family=Poppins:wght@300;400;500&display=swap');
 
 body, html {
   height: 100%;
@@ -19,14 +20,31 @@ h2 {
   font-weight: 300;
 }
 
+h3 {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 500;
+  font-size: 1.5em;
+}
+
 p {
   font-family: 'Manrope', sans-serif;
   font-weight: 300;
 }
 
+label {
+  display: block;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 400;
+}
+
+#highlight {
+  color: #6B705C;
+}
+
 
 /* Contents::
   1. Header 
+  2. Prompt
 */
 
 /* 1. Header */
@@ -53,4 +71,40 @@ p {
   font-weight: 300;
   padding: 0 3vw 0 3vw;
   margin-top: 1vh;
+}
+
+/* 2. Prompt */ 
+.prompt-wrapper {
+  height: auto;
+  display: flex;
+  justify-content: center;
+}
+
+.prompt-header {
+  height: auto;
+  display: flex; 
+  justify-content: center;
+  text-align: center;
+}
+
+.prompt-wrapper h3 {
+  margin-top: 5vh;
+}
+
+.prompt-form {
+  margin-top: 2.5vh;
+}
+.prompt-input {
+  height: 200px;
+  width: 100%;
+  background: #F2F3EC;
+  border-radius: 10px;
+  border: none;
+  margin-top: 0.5vh;
+}
+
+.prompt-input::placeholder {
+  padding: 1vh 0 0 1vw;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 300;
 }
