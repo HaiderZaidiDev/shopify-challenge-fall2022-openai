@@ -45,6 +45,7 @@ label {
 /* Contents::
   1. Header 
   2. Prompt
+  3. Responses
 */
 
 /* 1. Header */
@@ -60,6 +61,7 @@ label {
 }
 
 .cta-btn {
+  display: block;
   width: auto;
   height: 35px;
   background: #6B705C;
@@ -75,20 +77,16 @@ label {
 
 /* 2. Prompt */ 
 .prompt-wrapper {
-  height: auto;
   display: flex;
   justify-content: center;
 }
-
-.prompt-header {
-  height: auto;
-  display: flex; 
-  justify-content: center;
-  text-align: center;
-}
-
 .prompt-wrapper h3 {
+  text-align: center;
   margin-top: 5vh;
+}
+.prompt {
+  width: auto;
+  height: auto;
 }
 
 .prompt-form {
@@ -96,7 +94,7 @@ label {
 }
 .prompt-input {
   height: 200px;
-  width: 100%;
+  width: 35vw;
   background: #F2F3EC;
   border-radius: 10px;
   border: none;
@@ -107,4 +105,39 @@ label {
   padding: 1vh 0 0 1vw;
   font-family: 'Poppins', sans-serif;
   font-weight: 300;
+}
+
+/* 3. Resposnes */
+
+.responses-wrapper {
+  width: 35vw;
+  margin: 0 auto;
+  margin-top: 10vh;
+  padding-bottom: 10vh;
+}
+
+.responses {
+  display: flex;
+  justify-content: center;
+}
+
+.response {
+  height: 150px;
+  width: 100%;
+  background: #F2F3EC;
+  border-radius: 10px;
+  border: none;
+  margin: 2.5vh 0 1vh 0;
+  align-items: center;
+}
+
+.response p {
+  margin: 0.25vh;
+}
+
+@media only screen and (max-width: 600px) {
+  /* Increasing size of prompt text area and response div on mobile devices to take up a greater width */
+  .prompt-input, .responses-wrapper {
+    width: 75vw
+  }
 }

@@ -8,9 +8,9 @@ const Prompt = () => {
   console.log(prompt)
   return (
       <Col xs={12}>
-        <div className="prompt-wrapper">
-          <div className="prompt-content">
-            <h3> Enter a prompt. Receive <span id="highlight">AI-powered</span> Feedback.</h3>
+        <Row className="prompt-wrapper">
+          <h3> Enter a prompt. Receive <span id="highlight"> AI-powered</span>  Feedback.</h3>
+          <div className="prompt">
             <form className="prompt-form">
               <label for="prompt-input"> Prompt* </label>
               <textarea
@@ -22,8 +22,7 @@ const Prompt = () => {
                 <button class="cta-btn" type="submit"> Submit </button>
             </form>
           </div>
-
-        </div>
+        </Row>
       </Col>
 
   );
