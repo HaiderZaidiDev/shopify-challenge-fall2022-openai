@@ -19,9 +19,6 @@ const Response = (props) => {
     Index of the response.
   
   */
-    console.log(props)
-    console.log("inside response")
-
   return (
   <Row className="response">
     <Col md={3} xs={4}>

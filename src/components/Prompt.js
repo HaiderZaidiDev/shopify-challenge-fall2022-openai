@@ -14,7 +14,6 @@ const Prompt = () => {
   const [responses, setResponses] = useState('')
   const [engines, setEngines] = useState('')
   const [engineSelected, setEngine] = useState('')
-  console.log(engineSelected)
 
   useEffect(() => {
 
