@@ -23,7 +23,6 @@ app.get('/api/completions', async(req, res) => {
         apiKey: process.env.OPENAI_API_KEY,
     });
     const openai = new OpenAIApi(configuration);
-    console.log(req.query)
 
     const response = await openai.createCompletion(req.query.engineId, {
     prompt: req.query.prompt,

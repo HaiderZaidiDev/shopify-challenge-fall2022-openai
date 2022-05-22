@@ -24,7 +24,7 @@ const Prompt = () => {
   const fetchEngines = () => {
     axios.get(`/api/list_engines`)
     .then((res) => {
-      setEngines(res.data.data) // Updating state with list of engines available.
+      setEngines(res.data.data.reverse()) // Updating state with list of engines available.
     })
     .catch((err) => {
       console.log(`Error: ${err}`)
@@ -68,12 +68,12 @@ const Prompt = () => {
                 onChange={(event) => setPrompt(event.target.value)}
                 ></textarea>
               
-              <label htmlFor="engine-select"> Select Engine: </label>
-              <select className="select-btn" id="engine-select" onChange={(event) => setEngine(event.target.value)}> 
+              <label htmlFor="engine-select"> Select Engine (text-curie-001 is recommended): </label>
+              <select className="select-btn" id="engine-select" defaultValue="text-curie-001" onChange={(event) => setEngine(event.target.value)}> 
               {/* Rendering list of engines available. Shows a placeholder loading option until the API has completed its call */}
                 {engines 
                 ? engines.map((engine, idx) => (
-                  <option key={idx}>{engine.id}</option>
+                  <option key={idx} value={engine.id}>{engine.id}</option>
                 ))
                 : <option>Loading engines...</option>
               }
