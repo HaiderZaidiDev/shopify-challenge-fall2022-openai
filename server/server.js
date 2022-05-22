@@ -4,16 +4,14 @@ var http = require('https')
 const app = express();
 const port = process.env.PORT || 5000;
 var cors = require("cors");
-console.log(process.env)
 
 
 // Create a back-end server (API proxy) server with Express.
 // http.createServer(app).listen(port, () => console.log(`Backend server live, listening on port; ${port}`));
 
-
 app.use(cors())
 app.listen(port, () => {
-    console.log('server')
+    console.log(`Server is live, running on port: ${port}`)
 })
 
 // Endpoint wrapping the OpenAI completion API wrapper.
