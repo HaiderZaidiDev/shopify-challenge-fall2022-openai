@@ -6,7 +6,7 @@ const app = express();
 const port = process.env.PORT || 5000;
 var cors = require("cors");
 
-app.use(express.static(path.resolve(__dirname, '../client/build')));
+app.use(express.static(path.resolve(__dirname, '../build')));
 // Create a back-end server (API proxy) server with Express.
 // http.createServer(app).listen(port, () => console.log(`Backend server live, listening on port; ${port}`));
 
