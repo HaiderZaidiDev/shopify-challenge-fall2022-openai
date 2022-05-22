@@ -15,11 +15,6 @@ app.listen(port, () => {
     console.log(`Server is live, running on port: ${port}`)
 })
 
-
-app.get('*', (req, res) => {
-    res.sendFile(path.resolve(__dirname, '../build/index.html'));
-  });
-
 // Endpoint wrapping the OpenAI completion API wrapper.
 app.get('/api/completions', async(req, res) => {
 
@@ -52,3 +47,7 @@ app.get('/api/list_engines', async(req, res) => {
 
     res.send(response.data)
 })
+
+app.get('*', (req, res) => {
+    res.sendFile(path.resolve(__dirname, '../build/index.html'));
+  });
