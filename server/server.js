@@ -1,11 +1,12 @@
 const { Configuration, OpenAIApi } = require("openai");
 const express = require('express');
+const path = require('path');
 var http = require('https')
 const app = express();
 const port = process.env.PORT || 5000;
 var cors = require("cors");
 
-
+app.use(express.static(path.resolve(__dirname, '../build')));
 // Create a back-end server (API proxy) server with Express.
 // http.createServer(app).listen(port, () => console.log(`Backend server live, listening on port; ${port}`));
 
@@ -13,6 +14,11 @@ app.use(cors())
 app.listen(port, () => {
     console.log(`Server is live, running on port: ${port}`)
 })
+
+
+app.get('*', (req, res) => {
+    res.sendFile(path.resolve(__dirname, '../build/index.html'));
+  });
 
 // Endpoint wrapping the OpenAI completion API wrapper.
 app.get('/api/completions', async(req, res) => {
