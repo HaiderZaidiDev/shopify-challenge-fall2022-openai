@@ -34,10 +34,10 @@ app.get('/api/completions', async(req, res) => {
         res.send(response.data)
     }
     
-    catch {
+    catch (err) {
         // The API sometimes returns an invalid response due to an HTTPS error - this may
         // be an issue with OpenAI's API wrapper as a whole. 
-        res.send('Error: Invalid response received from the OpenAI API.')
+        res.send(`Error: Invalid response received from the OpenAI API. \n ${err}`)
     }
 })
 
@@ -52,8 +52,8 @@ app.get('/api/list_engines', async(req, res) => {
     
         res.send(response.data)
     }
-    catch {
-        res.send('Error: Invalid response received from the OpenAI API.')
+    catch (err) {
+        res.send(`Error: Invalid response received from the OpenAI API. \n ${err}`)
     }
 })
 
