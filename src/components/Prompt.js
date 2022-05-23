@@ -24,7 +24,7 @@ const Prompt = () => {
   const fetchEngines = () => {
     axios.get(`/api/list_engines`)
     .then((res) => {
-      setEngines(res.data.data.reverse()) // Updating state with list of engines available.
+      setEngines(res.data) // Updating state with list of engines available.
     })
     .catch((err) => {
       console.log(`Error: ${err}`)

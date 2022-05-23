@@ -49,14 +49,14 @@ app.get('/api/list_engines', async(req, res) => {
         const openai = new OpenAIApi(configuration);
         const response = await openai.listEngines();
 
-        var engines = response.data
+        var engines = response.data.data
+        console.log(engines)
 
         // Moving text-curie-001 (suggested engine) to the front of the engine list.
-        let suggestedEngineIdx = engines.index('text-curie-001')
+        const suggestedEngineIdx = engines.findIndex(engine => engine.id == 'text-curie-001')
+        engines.splice(0, 0, engines[suggestedEngineIdx])
         engines.splice(suggestedEngineIdx, 1)
-        engines.splice(0, 0, 'text-curie-001')
-
-    
+        console.log(engines)
         res.send(engines)
     }
     catch (err) {
