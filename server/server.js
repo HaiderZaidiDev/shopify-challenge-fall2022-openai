@@ -1,7 +1,6 @@
 const { Configuration, OpenAIApi } = require("openai");
 const express = require('express');
 const path = require('path');
-var http = require('https')
 const app = express();
 const port = process.env.PORT || 5000;
 var cors = require("cors");
