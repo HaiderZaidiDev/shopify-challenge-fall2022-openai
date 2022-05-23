@@ -36,7 +36,6 @@ const Response = (props) => {
 
 const Responses = (props) => {
   /* props:
-
   responses: list
     Listed fill with objects of responses from the OpenAI completiosn API.
   */

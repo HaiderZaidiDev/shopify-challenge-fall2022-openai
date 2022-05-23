@@ -13,7 +13,7 @@ const Prompt = () => {
   const [prompt, setPrompt] = useState('')
   const [responses, setResponses] = useState('')
   const [engines, setEngines] = useState('')
-  const [engineSelected, setEngine] = useState('')
+  const [engineSelected, setEngine] = useState('text-curie-001')
 
   useEffect(() => {
 
@@ -49,7 +49,7 @@ const Prompt = () => {
   }
 
   const submitHandler = (event) => {
-    event.preventDefault();
+    event.preventDefault(); // Prevents page from refreshing instantly after submit.
     fetchPromptResponse()
   }
 

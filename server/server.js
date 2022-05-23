@@ -7,8 +7,6 @@ const port = process.env.PORT || 5000;
 var cors = require("cors");
 
 app.use(express.static(path.resolve(__dirname, '../build')));
-// Create a back-end server (API proxy) server with Express.
-// http.createServer(app).listen(port, () => console.log(`Backend server live, listening on port; ${port}`));
 
 app.use(cors())
 app.listen(port, () => {
@@ -17,34 +15,46 @@ app.listen(port, () => {
 
 // Endpoint wrapping the OpenAI completion API wrapper.
 app.get('/api/completions', async(req, res) => {
+    try {
+        // Using the OpenAI API wrapper to fetch a get request from the completion API.
+        const configuration = new Configuration({
+            apiKey: process.env.OPENAI_API_KEY,
+        });
+        const openai = new OpenAIApi(configuration);
 
-    // Using the OpenAI API wrapper to fetch a get request from the completion API.
-    const configuration = new Configuration({
-        apiKey: process.env.OPENAI_API_KEY,
-    });
-    const openai = new OpenAIApi(configuration);
+        const response = await openai.createCompletion(req.query.engineId, {
+        prompt: req.query.prompt,
+        temperature: 0.29,
+        max_tokens: 64,
+        top_p: 1,
+        frequency_penalty: 0,
+        presence_penalty: 0,
+        });
 
-    const response = await openai.createCompletion(req.query.engineId, {
-    prompt: req.query.prompt,
-    temperature: 0.29,
-    max_tokens: 64,
-    top_p: 1,
-    frequency_penalty: 0,
-    presence_penalty: 0,
-    });
-
-    res.send(response.data)
+        res.send(response.data)
+    }
+    
+    catch {
+        // The API sometimes returns an invalid response due to an HTTPS error - this may
+        // be an issue with OpenAI's API wrapper as a whole. 
+        res.send('Error: Invalid response received from the OpenAI API.')
+    }
 })
 
 app.get('/api/list_engines', async(req, res) => {
     // Using the OpenAI API wrapper to fetch a list of engines available.
-    const configuration = new Configuration({
-        apiKey: process.env.OPENAI_API_KEY,
-    });
-    const openai = new OpenAIApi(configuration);
-    const response = await openai.listEngines();
-
-    res.send(response.data)
+    try {
+        const configuration = new Configuration({
+            apiKey: process.env.OPENAI_API_KEY,
+        });
+        const openai = new OpenAIApi(configuration);
+        const response = await openai.listEngines();
+    
+        res.send(response.data)
+    }
+    catch {
+        res.send('Error: Invalid response received from the OpenAI API.')
+    }
 })
 
 app.get('*', (req, res) => {
